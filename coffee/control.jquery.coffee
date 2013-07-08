@@ -6,10 +6,10 @@ $ ->
     socket.emit 'control', data
 
   $("#video-select").on 'change', ->
-    $("#load-button").attr("data-arg", $(@).val()).attr("disabled",false)
+    $(".video-selection input").attr("data-arg", $(@).val()).attr("disabled",false)
 
   $("#channel-select").on 'change', ->
-    $("#load-button").attr("disabled",true)
+    $(".video-selection input").attr("disabled",true)
     channel = new Channel($(@).val())
     channel.complete (data) ->
       $("#video-select").html ""
@@ -19,7 +19,7 @@ $ ->
 
 
   $.getJSON "/channels", (data) ->
-    $("#load-button").attr("disabled",true)
+    $(".video-selection input").attr("disabled",true)
     $("#channel-select").html ""
     for channel in data
       $("#channel-select").append("<option value='#{channel.id}'>#{channel.name}</option>")

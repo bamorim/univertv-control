@@ -1,8 +1,8 @@
 $ ->
   socket = io.connect "http://localhost:3700"
   player = new Player("player")
-  player.onChange ->
-    socket.emit 'status', player.status
+  # player.onChange (status) ->
+  #   socket.emit 'status', status
   player.load "smhNWSWGjU4m9avO" # Loads a default video
 
   socket.on 'control', (data) ->
@@ -13,3 +13,4 @@ $ ->
       when "toggle-hd" then player.toggle_hd()
       when "volume-up" then player.volume(player.volume() + 0.1)
       when "volume-down" then player.volume(player.volume() - 0.1)
+      when "playlist-add" then player.add(data.arg)

@@ -1,8 +1,9 @@
 class @Channel
   constructor: (id) ->
     @id = id
-    $.getJSON "/channel/#{id}", (data) ->
+    $.getJSON "/channel/#{id}", (data) =>
       @videos = data
-      @callback(@videos)
+      @callback(@videos) if @callback
 
-  complete: (callback) -> @callback = callback
+  complete: (callback) -> 
+    @callback = callback

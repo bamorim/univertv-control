@@ -4,13 +4,14 @@ html
     title= "Video Controller"
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js")
     script(src='/js/channel.js')
-    script(src='/js/control.js')
+    script(src='/js/control.jquery.js')
     script(src='/socket.io/socket.io.js')
   body
     .video-selection
       select#channel-select
       select#video-select(disabled="disabled")
-      input#load-button.control(type="button", data-control="load", value="Carregar", disabled="disabled")
+      input.control(type="button", data-control="load", value="Carregar", disabled="disabled")
+      input.control(type="button", data-control="playlist-add", value="Adicionar a Lista", disabled="disabled")
     .video-controls
       input.control(type='button', data-control='play', value="Play")
       input.control(type='button', data-control='pause', value="Pause")
