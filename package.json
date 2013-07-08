@@ -1,0 +1,15 @@
+{
+  "name": "UniVerTv",
+  "version": "0.0.0",
+  "description": "Video Controller",
+  "dependencies": {
+    "socket.io": "latest",
+    "express": "latest",
+    "jade": "latest"
+  },
+  "author": "Bernardo Amorim",
+  "scripts": {
+    "prestart": "coffee -o public/js/ -c coffee/*.coffee",
+    "start": "coffee server.coffee"
+  }
+}
